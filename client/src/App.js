@@ -12,8 +12,7 @@ function App() {
 
     useEffect(() => {
         axios.get('http://localhost:3001/tasks')
-        .then(res => setName({res}))
-        .then((res) => console.log(res))
+        .then(res => console.log(res))
         .catch((err) => console.log(err))
     })
 
