@@ -1,7 +1,7 @@
 const User = require('../models/User')
-const Router = require('express').Router()
+const router = require('express').Router()
 
-Router.get('/test', async (req, res) => {
+router.get('/test', async (req, res) => {
     console.log('Backend Hit: Open!');
     let name = {
         name: 'robert',
@@ -17,4 +17,4 @@ Router.get('/test', async (req, res) => {
     }
 });
 
-module.exports = Router;
+module.exports = router;
