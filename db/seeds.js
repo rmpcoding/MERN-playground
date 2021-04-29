@@ -1,4 +1,5 @@
 const User = require('../models/User');
+
 require('./mongoose');
 
 const users = [
