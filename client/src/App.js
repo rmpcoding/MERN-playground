@@ -11,10 +11,10 @@ function App() {
     const [ password, setPassword ] = useState('password');
 
     useEffect(() => {
-        axios.get('http://localhost:3001/tasks')
-        .then(res => console.log(res))
+        axios.get('http://localhost:3001/user')
+        .then(res => console.log(res.data))
         .catch((err) => console.log(err))
-    })
+    }, [])
 
     return (
         <div className="App">
