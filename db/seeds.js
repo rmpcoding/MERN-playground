@@ -1,27 +1,20 @@
 const User = require('../models/User');
-
+const faker = require('faker');
 require('./mongoose');
 
-const users = [
-    {
-        name: 'Robert Lemon',
-        email: 'email1@email.com',
-        password: 'password',
-    },
-    {
-        name: 'Jon Smith',
-        email: 'email2@email.com',
-        password: 'password',
-    },
-    {
-        name: 'Jon1 Smith',
-        email: 'email3@email.com',
-        password: 'password1',
-    },
-];
+let example = []
+
+function generateFakeData(arr, num) {
+    for(let i = 0; i < num; i++) {
+        arr.push({
+            name: faker.name.firstName(),
+            email: faker.internet.email(),
+            password: faker.lorem.word(),
+        })
+    }
+    return arr;
+}
 
 User.deleteMany({}).then(() => {
-    User.insertMany(users).then((data) => {
-        console.log(data + ' records inserted!');
-    });
+    User.insertMany(generateFakeData(example, 15))
 });
