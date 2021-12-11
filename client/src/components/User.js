@@ -1,11 +1,16 @@
 import React from 'react';
 
-const User = ({ name, email, password }) => {
+const User = ({ users }) => {
     return (
         <div>
-                <li>name: {name}</li>
-                <li>email: {email}</li>
-                <li>password: {password}</li>
+            {users &&
+                users.map((user) => (
+                    <div key={user._id}>
+                        <li>name: {user.name}</li>
+                        <li>email: {user.email}</li>
+                        <li>password: {user.password}</li>
+                    </div>
+                ))}
         </div>
     );
 };

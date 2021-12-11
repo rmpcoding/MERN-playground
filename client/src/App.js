@@ -1,30 +1,26 @@
-import React, { useState, useEffect }from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from 'react';
 import User from './components/User';
+import CountDown from './components/CountDown';
 import './App.css';
 
-
-
 function App() {
-    const [ name, setName ] = useState('Robert');
-    const [ email, setEmail ] = useState('email@email.com');
-    const [ password, setPassword ] = useState('password');
+    const [users, setUsers] = useState();
 
     useEffect(() => {
-        axios.get('http://localhost:3001/user')
-        .then(res => console.log(res.data))
-        .catch((err) => console.log(err))
-    }, [])
+        const getUsers = async () => {
+            const response = await fetch('/user');
+            const users = await response.json();
+            setUsers(users);
+        };
+        getUsers();
+    }, []);
 
     return (
         <div className="App">
+            <CountDown />
             <div>
                 hello
-                <User
-                  name={name}
-                  email={email}
-                  password={password}
-                />
+                <User users={users} />
             </div>
         </div>
     );
