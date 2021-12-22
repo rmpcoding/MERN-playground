@@ -1,0 +1,19 @@
+nav {
+    display: flex;
+}
+
+nav button {
+    text-decoration: none;
+    color: white;
+    margin-right: .5em;
+    background-color: rgb(130, 101, 157);
+    padding: .6em;
+    border-radius: 10px;
+    border: none
+
+}
+
+nav button:hover {
+    cursor: pointer;
+    color: rgba(245, 245, 245, 0.755)
+}
