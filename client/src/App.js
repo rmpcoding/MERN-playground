@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import ClassH1 from './components/ClassH1';
 import Users from './components/Users';
+import About from './components/About';
+import Portfolio from './components/Portfolio';
 import API from './utils/API';
 import './App.css';
 
@@ -21,28 +23,26 @@ function App() {
         getListOfUsers();
     }, []);
 
-
-
     const showPage = () => {
-        console.log(page)
         switch (page) {
+            case 'About Me':
+                return <About />;
+            case 'Portfolio':
+                return <Portfolio />;
             case 'Users':
                 return <Users users={users} />;
-                break;
             case 'ClassH1':
                 return <ClassH1 />;
-                break;
             default:
-                return <Users />;
+                return <Users users={users} />;
         }
     };
 
     return (
         <div className="App">
             <Header setPage={setPage} />
-            <div>
-                {showPage()}
-            </div>
+            {showPage()}
+
         </div>
     );
 }
